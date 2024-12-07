@@ -3,6 +3,7 @@ from shopping_cart.shopping_cart import initialize_shopping_cart, add_fruit_to_c
 from shopping_cart.fruit import Fruit
 
 class TestShoppingCart(unittest.TestCase):
+        
     def test_initialize_shopping_cart(self):
         cart = initialize_shopping_cart()
         self.assertEqual(len(cart.items), 0)
@@ -24,6 +25,8 @@ class TestShoppingCart(unittest.TestCase):
         removed_fruit = remove_fruit_from_cart(cart, "Apple")
         # self.assertNotEqual(removed_fruit, None)
         # self.assertEqual(removed_fruit, "Apple")
+        self.assertIsNotNone(removed_fruit)
+        self.assertEqual(removed_fruit.name, "Apple")
         self.assertEqual(len(cart.items), 0)
 
         # Test the null case

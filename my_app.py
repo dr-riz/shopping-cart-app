@@ -22,3 +22,8 @@ if __name__ == "__main__":
     parser.add_argument("--fave-fruits", required=True, help="All your favorite fruits!")
     args = parser.parse_args()
     create_happy_cart("apple,banana,berries")
+
+    # write me a program the prints out the number of seconds in a year
+
+
+    
