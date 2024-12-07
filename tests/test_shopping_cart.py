@@ -1,6 +1,6 @@
 import unittest
-from shopping_cart.shopping_cart import initialize_shopping_cart, add_fruit_to_cart, remove_fruit_from_cart
-from shopping_cart.fruit import Fruit
+from shopping_cart import initialize_shopping_cart, add_fruit_to_cart, remove_fruit_from_cart
+from shopping_cart import Fruit
 
 class TestShoppingCart(unittest.TestCase):
         

@@ -1,13 +1,13 @@
 from typing import List
-from shopping_cart.shopping_cart import add_fruit_to_cart, initialize_shopping_cart
-from shopping_cart.fruit import Fruit
+from shopping_cart import add_fruit_to_cart, initialize_shopping_cart
+from shopping_cart import Fruit
 
 def create_happy_cart(fave_fruits: str):
     fruit_names : List[str] = _parse_fruit_arg(fave_fruits)
 
     cart = initialize_shopping_cart()
     for fruit_name in fruit_names:
-        fruit = Fruit(name=fruit_name)
+        fruit = Fruit(name=fruit_name, price=1.0)
         add_fruit_to_cart(cart, fruit)
 
     print("Happy cart created!")
@@ -21,9 +21,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--fave-fruits", required=True, help="All your favorite fruits!")
     args = parser.parse_args()
-    create_happy_cart("apple,banana,berries")
-
-    # write me a program the prints out the number of seconds in a year
+    create_happy_cart(args.fave_fruits)
 
 
     
