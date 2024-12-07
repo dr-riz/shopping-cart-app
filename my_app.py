@@ -1,6 +1,5 @@
 from typing import List
-from shopping_cart.shopping_cart import add_fruit_to_cart, initialize_shopping_cart, remove_fruit_from_cart
-from shopping_cart.shopping_cart import ShoppingCart    
+from shopping_cart.shopping_cart import add_fruit_to_cart, initialize_shopping_cart
 from shopping_cart.fruit import Fruit
 
 def create_happy_cart(fave_fruits: str):
