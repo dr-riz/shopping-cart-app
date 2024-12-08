@@ -1,12 +1,9 @@
 from dataclasses import dataclass
-from typing import List, Optional
+from typing import List, Optional   
 
-from .fruit import Fruit
-
-@dataclass
-class ShoppingCart:
-    items: List[Fruit]
-
+from ..domain.fruit import Fruit
+from ..domain.shopping_cart import ShoppingCart
+from ..adapters.scorer import ShoppingCartScorer
 
 def initialize_shopping_cart() -> ShoppingCart: #/\<ShoppingCart\>
     """
@@ -32,4 +29,13 @@ def remove_fruit_from_cart(cart: ShoppingCart, fruit_name:str) -> Optional[Fruit
         
     return None
 
-
+def score_shopping_cart(cart: ShoppingCart):
+    """
+    Assign a score the shopping cart
+    based on the contents using an ML model.
+    """
+    scorer = ShoppingCartScorer()
+    cart_score = scorer.score_shopping_cart(cart)
+    print(f"Assinging score to the shopping cart: {cart_score}")
+    cart.score = cart_score
+    # print(cart_score)
