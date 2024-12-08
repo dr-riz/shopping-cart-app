@@ -1,5 +1,5 @@
 import unittest
-from shopping_cart import initialize_shopping_cart, add_fruit_to_cart, remove_fruit_from_cart
+from shopping_cart import initialize_shopping_cart, add_fruit_to_cart, remove_fruit_from_cart, score_shopping_cart
 from shopping_cart import Fruit
 
 class TestShoppingCart(unittest.TestCase):
@@ -33,6 +33,20 @@ class TestShoppingCart(unittest.TestCase):
         removed_fruit = remove_fruit_from_cart(cart, "Apple")
         self.assertIsNone(removed_fruit)
         self.assertEqual(len(cart.items), 0)
+
+    def test_score_shopping_cart(self):
+        cart = initialize_shopping_cart()
+        apple = Fruit(name="Apple", price=100)
+        add_fruit_to_cart(cart, apple)
+        self.assertEqual(len(cart.items), 1)
+
+        kiwi = Fruit(name="Kiwi", price=50)
+        add_fruit_to_cart(cart, kiwi)
+        self.assertEqual(len(cart.items), 2)
+
+        print(score_shopping_cart(cart))
+        self.assertEqual(cart.score, 150)
+
 
 if __name__ == "__main__":
     unittest.main()

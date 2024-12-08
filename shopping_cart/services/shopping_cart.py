@@ -38,4 +38,4 @@ def score_shopping_cart(cart: ShoppingCart):
     cart_score = scorer.score_shopping_cart(cart)
     print(f"Assinging score to the shopping cart: {cart_score}")
     cart.score = cart_score
-    # print(cart_score)
+    print("score in cart=" + str(cart.score))
