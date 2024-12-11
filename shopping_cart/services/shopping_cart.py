@@ -3,8 +3,7 @@ from typing import List, Optional
 
 from ..domain.fruit import Fruit
 from ..domain.shopping_cart import ShoppingCart
-# from ..adapters.scorer import ShoppingCartScorer
-from ..adater.scorer import get_scorer
+from ..adapters import get_scorer
 
 def initialize_shopping_cart() -> ShoppingCart: #/\<ShoppingCart\>
     """
@@ -30,12 +29,14 @@ def remove_fruit_from_cart(cart: ShoppingCart, fruit_name:str) -> Optional[Fruit
         
     return None
 
-def score_shopping_cart(cart: ShoppingCart):
+def score_shopping_cart(cart: ShoppingCart, scorer_type: str = "ml") -> None:
     """
     Assign a score the shopping cart
     based on the contents using an ML model.
     """
     # scorer = ShoppingCartScorer()
-    scorer = get_scorer()
+    ScoreCls = get_scorer(scorer_type = scorer_type)    
+    scorer = ScoreCls()
+    # scorer = get_scorer(scorer_type = scorer_type)
     cart_score = scorer.score_shopping_cart(cart)
     cart.score = int(cart_score)

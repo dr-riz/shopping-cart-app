@@ -2,6 +2,8 @@ from typing import List
 from shopping_cart import add_fruit_to_cart, initialize_shopping_cart, score_shopping_cart
 from shopping_cart import Fruit
 
+SCORER_TYPE = "base"
+
 def create_happy_cart(fave_fruits: str):
     fruit_names : List[str] = _parse_fruit_arg(fave_fruits)
 
@@ -12,7 +14,7 @@ def create_happy_cart(fave_fruits: str):
 
     print("Happy cart created!")
     print(cart)
-    score_shopping_cart(cart)
+    score_shopping_cart(cart, SCORER_TYPE)
     print("Scoring the cart...:" + str(cart.score))
 
 def _parse_fruit_arg(fave_fruits: str) -> List[str]:

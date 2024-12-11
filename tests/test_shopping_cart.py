@@ -44,7 +44,7 @@ class TestShoppingCart(unittest.TestCase):
         add_fruit_to_cart(cart, kiwi)
         self.assertEqual(len(cart.items), 2)
 
-        print(score_shopping_cart(cart))
+        print(score_shopping_cart(cart, "base"))
         self.assertEqual(cart.score, 150)
 
 
