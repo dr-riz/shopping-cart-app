@@ -12,8 +12,8 @@ def create_happy_cart(fave_fruits: str):
 
     print("Happy cart created!")
     print(cart)
-    print("Scoring the cart...")
-    print(score_shopping_cart(cart))
+    score_shopping_cart(cart)
+    print("Scoring the cart...:" + str(cart.score))
 
 def _parse_fruit_arg(fave_fruits: str) -> List[str]:
     return [fruit.strip() for fruit in fave_fruits.split(",") if fruit.strip()]
