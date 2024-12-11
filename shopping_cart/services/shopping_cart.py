@@ -3,7 +3,8 @@ from typing import List, Optional
 
 from ..domain.fruit import Fruit
 from ..domain.shopping_cart import ShoppingCart
-from ..adapters.scorer import ShoppingCartScorer
+# from ..adapters.scorer import ShoppingCartScorer
+from ..adater.scorer import get_scorer
 
 def initialize_shopping_cart() -> ShoppingCart: #/\<ShoppingCart\>
     """
@@ -34,6 +35,7 @@ def score_shopping_cart(cart: ShoppingCart):
     Assign a score the shopping cart
     based on the contents using an ML model.
     """
-    scorer = ShoppingCartScorer()
+    # scorer = ShoppingCartScorer()
+    scorer = get_scorer()
     cart_score = scorer.score_shopping_cart(cart)
     cart.score = int(cart_score)
